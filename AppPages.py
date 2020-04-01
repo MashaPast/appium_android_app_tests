@@ -1,0 +1,23 @@
+from BaseApp import BasePage
+
+
+class SearchPage(BasePage):
+
+    def enter_word(self, word, locator):
+        search_field = self.find_element(locator)
+        search_field.click()
+        search_field.send_keys(word)
+        return search_field
+
+    def click_on_the_search_button(self, locator):
+        return self.find_element(locator, time=2).click()
+
+
+class SearchResultsPage(BasePage):
+
+    def click_group(self, locator):
+        return self.find_element(locator, time=2).click()
+
+    def check_text(self, locator):
+        homeland_list = self.find_elements(locator, time=2)
+        return homeland_list
